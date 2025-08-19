@@ -1,0 +1,15 @@
+[package]
+name = "core-package"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = "1.0"
+
+# Path dependencies that don't exist
+missing-core-utils = { path = "../missing-core-package" }
+phantom-core-lib = { path = "./nonexistent-local-lib" }
+
+# Regular dependencies that don't exist
+vulnerable-core-crate12345 = "1.8.0"
+nonexistent-core-framework12345 = "2.3.0"
