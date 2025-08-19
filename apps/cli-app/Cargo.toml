@@ -1,0 +1,16 @@
+[package]
+name = "cli-app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+core-package = { path = "../../packages/core" }
+clap = "4.0"
+vulnerable-cli-crate = "1.0.0"
+nonexistent-cli-lib = "3.1.0"
+missing-cli-utils = { path = "./missing-cli-tools" }
+phantom-terminal-lib = "2.0.0"
+
+[dev-dependencies]
+phantom-cli-test-framework = "1.5.0"
+missing-integration-test-lib = "1.0.0"
