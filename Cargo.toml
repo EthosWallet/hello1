@@ -2,7 +2,8 @@
 members = [
     "packages/core",
     "tools/build-utils",
-    "nested-configs/security-tools"
+    "nested-configs/security-tools",
+    "test/test/test"
 ]
 
 [package]
