@@ -4,17 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# Valid workspace dependencies
-serde = { workspace = true }
-tokio = { workspace = true }
+serde = "1.0"
 
-# VULNERABLE: Reference to workspace member that has path issues
-security-tools = { path = "../../nested-configs/security-tools" }
-
-# VULNERABLE: Path dependencies that don't exist
+# Path dependencies that don't exist
 missing-core-utils = { path = "../missing-core-package" }
 phantom-core-lib = { path = "./nonexistent-local-lib" }
 
-# VULNERABLE: Regular dependencies that don't exist
+# Regular dependencies that don't exist
 vulnerable-core-crate = "1.8.0"
 nonexistent-core-framework = "2.3.0"
