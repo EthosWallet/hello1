@@ -1,0 +1,13 @@
+[package]
+name = "core-package"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { workspace = true }
+vulnerable-core-crate = "1.8.0"
+nonexistent-core-lib = "2.3.0"
+missing-core-dependency = { path = "../../missing-packages/utils" }
+
+[dev-dependencies]
+phantom-core-test-lib = "1.2.0"
