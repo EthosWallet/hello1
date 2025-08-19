@@ -1,0 +1,12 @@
+[registries]
+internal = { index = "https://internal.company.com/git/index" }
+
+[source.crates-io]
+replace-with = "internal"
+
+[source.internal]
+registry = "https://internal.company.com/git/index"
+
+[net]
+retry = 2
+git-fetch-with-cli = true
