@@ -1,0 +1,25 @@
+[package]
+name = "build-utils"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Valid workspace dependencies
+serde = { workspace = true }
+
+# VULNERABLE: Workspace dependencies that don't exist in root
+missing-shared-crypto = { workspace = true }
+
+# VULNERABLE: Path dependencies to missing packages
+missing-build-tools = { path = "../../missing-build-package" }
+phantom-generator = { path = "../phantom-code-gen" }
+
+# VULNERABLE: Regular dependencies that don't exist
+vulnerable-build-crate = "1.3.0"
+nonexistent-build-lib = "2.7.0"
+phantom-macro-tools = "1.1.0"
+
+[dev-dependencies]
+# VULNERABLE: Missing dev dependencies with various formats
+missing-test-build = "1.0.0"
+phantom-integration-test = { path = "./missing-integration-tools" }
