@@ -5,24 +5,17 @@ members = [
     "nested-configs/security-tools"
 ]
 
-resolver = "2"
-
-[workspace.dependencies]
-# These workspace dependencies should be available to all members
-serde = "1.0"
-tokio = "1.0"
-# VULNERABLE: These workspace deps don't exist but are referenced by members
-missing-shared-crypto = "2.5.0"
-phantom-workspace-utils = "1.8.0"
-
 [package]
 name = "cargo-workspace-root"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-serde = { workspace = true }
-# VULNERABLE: Path dependency pointing to missing directory
+serde = "1.0"
+# This should be detected as path confusion (missing local path)
 missing-root-package = { path = "./missing-packages/root-lib" }
-# VULNERABLE: Regular dependency that doesn't exist
 nonexistent-root-crate = "1.0.0"
+
+[dev-dependencies]
+phantom-test-framework = "1.0.0"
+missing-dev-crate = "2.1.0"
