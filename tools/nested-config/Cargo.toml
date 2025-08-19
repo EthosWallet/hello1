@@ -1,0 +1,19 @@
+[package]
+name = "nested-cargo-config"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { workspace = true }
+vulnerable-nested-crate = "2.0.0"
+nonexistent-nested-lib = "1.5.0"
+missing-path-dependency = { path = "../missing-local-crate" }
+phantom-crypto-utils = "3.2.1"
+
+# Workspace dependencies that might not exist
+missing-workspace-dep = { workspace = true }
+phantom-workspace-lib = { workspace = true }
+
+[dev-dependencies]
+phantom-test-helper = "1.0.0"
+missing-nested-dev-crate = "2.1.0"
