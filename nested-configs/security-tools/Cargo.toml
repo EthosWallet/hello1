@@ -4,36 +4,19 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# Valid workspace dependency
-serde = { workspace = true }
-tokio = { workspace = true }
+serde = "1.0"
+tokio = "1.0"
 
-# VULNERABLE: Workspace dependency that doesn't exist in root workspace.dependencies
-missing-shared-crypto = { workspace = true }
-phantom-workspace-utils = { workspace = true }
-
-# VULNERABLE: Path dependencies pointing to missing directories
+# Path dependencies pointing to missing directories
 missing-crypto-lib = { path = "../missing-crypto-package" }
 phantom-security-utils = { path = "../../nonexistent-security-tools" }
 missing-local-auth = { path = "./local-auth-lib" }
 
-# VULNERABLE: Regular dependencies that don't exist in crates.io
+# Regular dependencies that don't exist in crates.io
 vulnerable-nested-crate = "2.1.0"
 nonexistent-security-lib = "3.0.0"
 phantom-crypto-framework = "1.5.0"
-missing-auth-validator = "2.8.0"
-
-# VULNERABLE: Git dependencies pointing to non-existent repos
-missing-git-crypto = { git = "https://github.com/nonexistent-org/crypto-lib.git" }
-phantom-git-auth = { git = "https://github.com/missing-company/auth-tools.git", branch = "main" }
 
 [dev-dependencies]
-# VULNERABLE: Dev dependencies that don't exist
 phantom-test-crypto = "1.0.0"
 missing-security-tests = "2.1.0"
-nonexistent-bench-tools = { path = "../missing-bench-tools" }
-
-[build-dependencies]
-# VULNERABLE: Build dependencies that don't exist
-phantom-build-crypto = "1.2.0"
-missing-codegen-security = "2.0.0"
